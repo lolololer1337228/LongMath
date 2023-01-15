@@ -3,4 +3,4 @@ project(LongMath)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(LongMath main.cpp)
+add_executable(LongMath main.cpp LongInt.h LongInt.cpp LongDouble.h LongDouble.cpp)
