@@ -101,9 +101,7 @@ LongInt operator*(const LongInt &a, const LongInt &b) {
       c.num[i + j] = int(cur % a.base);
       carry = int(cur / a.base);
     }
-  while (c.num.size() > 1 && c.num.back() == 0)
-    c.num.pop_back();
-  c.negative = a.negative != b.negative;
+  c.fixup();
   return c;
 }
 
@@ -295,7 +293,10 @@ LongInt::LongInt(const std::string &s) {
     temp *= 10;
     temp += (unsigned char) (tmp[i]) - 48;
   }
-  if (tmp.size() % 9) this->num.push_back(temp);
+  if (tmp.size() % 9) {
+    this->shift_right();
+    this->num[0] = temp;
+  }
   for (ull i = tmp.size() % 9; i < tmp.size(); i += 9) {
     temp = (unsigned char) (tmp[i]) - 48;
     for (int j = 1; j < 9; ++j) {

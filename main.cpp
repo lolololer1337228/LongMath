@@ -13,7 +13,7 @@ int main() {
   std::cout << "====== Init LongDouble ======" << std::endl;
   LongDouble def2;
   std::cout << "Default: " << def2.str() << std::endl;
-  LongDouble dbl1(10), dbl2(13.3), dbl3(-1), dbl4(-3.9);
+  LongDouble dbl1(10.0), dbl2(13.3), dbl3(-1.0), dbl4(-3.9);
   std::cout << "Double: " << dbl1.str() << " " << dbl2.str() << " " << dbl3.str() << " " << dbl4.str() << std::endl;
   LongInt li1("10000000000");
   LongDouble li2(li1);
